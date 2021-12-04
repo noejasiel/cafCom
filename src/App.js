@@ -18,6 +18,7 @@ function App() {
           <Route path="/Perfil" exact element={<Perfil />} />
           <Route path="/Salir" exact element={<Salir />} />
           <Route path="/Faqs" exact element={<Faqs />} />
+          <Route path="/" />
         </Routes>
       </Router>
     </div>
