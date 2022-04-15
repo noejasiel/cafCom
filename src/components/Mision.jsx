@@ -3,7 +3,7 @@ import somos from "../assets/somos.png";
 
 const Mision = () => {
   return (
-    <div className="w-full bg-danger flex  justify-center pt-6 pb-6">
+    <div className="w-full bg-negroAzul flex  justify-center pt-6 pb-6">
       <div className="w-10/12 flex justify-around">
         <div className="w-7/12">
           <h1 className="text-white ">Mision</h1>

@@ -1,18 +1,14 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import user from "../assets/user.png";
+import ReturnDataUser from "../components/ReturnDataUser";
 
 const Perfil = () => {
   return (
-    <div className="bg-danger">
+    <div className="bg-negroAzul h-screen w-full  ">
       <Navbar />
-      <div>
-        <img src={user} />
-        <p>Nombre</p>
-        <p>Apellido</p>
-        <p>Metodo Pago</p>
-        <p>Cerrar Cuenta</p>
-        <p>Direcciones</p>
+      <div className="text-yellow-500 flex justify-center items-center flex-col relative top-20">
+        <ReturnDataUser />
       </div>
     </div>
   );

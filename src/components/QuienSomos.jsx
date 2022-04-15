@@ -3,7 +3,7 @@ import somos from "../assets/somos.png";
 
 const QuienSomos = () => {
   return (
-    <div className="w-full bg-secondary flex  justify-center pt-6 pb-6">
+    <div className="w-full bg-negroAzul flex  justify-center pt-6 pb-6">
       <div className="w-10/12 flex justify-around">
         <img src={somos} width="110" />
         <div className="w-7/12">
