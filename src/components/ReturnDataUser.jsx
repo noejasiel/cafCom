@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import userPic from "../assets/user.png";
 import pedido, { getUser } from "./../data";
 import { useState } from "react";

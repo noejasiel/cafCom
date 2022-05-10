@@ -6,21 +6,49 @@ import Perfil from "./pages/Perfil";
 import Salir from "./pages/Salir";
 import Faqs from "./pages/Faqs";
 import Pedidos_pedidos from "./pages/Pedidos_pedidos";
-import ReturnDataUser from "./components/ReturnDataUser";
+import NuevoPedido from "./pages/NuevoPedido";
+import PerfilCafeteria from "./cafeteriaVistas/PerfilCafeteria";
+import { ListPedidos } from "./cafeteriaVistas/ListPedidos";
+import { Login } from "./pages/Login";
+import { DashboardCliente } from "./pages/DashboardCliente";
+import { DashboardCafe } from "./componentsCafe/DashboardCafe";
 
 function App() {
+  const usr = "cli";
+  const auth = false;
   return (
     <div className="">
       <Router>
         <Routes>
+          //si auth esta autenticado, y usr es para saber que Dashboard
+          renderizara
+          {/* {usr == "cli" && auth ? 
+            <Route path="/Dashboard" exact element={<DashboardCliente />} />
+           : null} */}
           <Route path="/" exact element={<Home />} />
-          <Route path="/pedidos" exact element={<Pedidos />} />
-          <Route path="/perfil" exact element={<Perfil />} />
-          {/* <Route path="/perfil" exact element={<ReturnDataUser />} /> */}
-          <Route path="/salir" exact element={<Salir />} />
-          <Route path="/faqs" exact element={<Faqs />} />
-          <Route path="/pedidos/:numero" element={<Pedidos_pedidos />} />
-          <Route path="*" exact element={<Navigate replace to="/" />} />
+          <Route
+            path="/login"
+            exact
+            element={
+              auth ? <Navigate to="/DashboardCafe" /> : <Login auth={auth} />
+            }
+          />
+          <Route path="/Dashboard/*" exact element={<DashboardCliente />}>
+            <Route path="Pedidos" element={<Pedidos />} />
+            <Route path="Ordenar" element={<NuevoPedido />} />
+            <Route path="Perfil" element={<Perfil />} />
+            <Route path="Salir" element={<Salir />} />
+            <Route path="faqs" element={<Faqs />} />
+            <Route path="Pedidos/:numero" element={<Pedidos_pedidos />} />
+          </Route>
+          {/* <Route path="*" exact element={<Navigate replace to="/" />} /> */}
+          {/* routes cafeteria */}
+          {/* <Dashboard /> */}
+          <Route path="DashboardCafe/*" element={<DashboardCafe />}>
+            <Route path="perfilCafeteria" element={<PerfilCafeteria />} />
+            <Route path="listaPedidos" element={<ListPedidos />} />
+            <Route path="faqs" element={<Faqs />} />
+          </Route>
         </Routes>
       </Router>
     </div>

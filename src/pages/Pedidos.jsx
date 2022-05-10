@@ -2,21 +2,23 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import mas from "../assets/mas.png";
 import PedidosCola from "../components/Pedidos_cola";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import pedido, { getUser } from "./../data";
 import { useEffect, useState } from "react";
 
 const Pedidos = () => {
+  const navigate = useNavigate();
+
   //trayendo los pedidos de mi data.js
   const pedidos = pedido;
 
   const handleOrder = () => {
-    alert("nueva orden");
+    navigate("/Dashboard/Ordenar");
   };
 
   return (
     <div className="relative pt-16 bg-negroAzul h-screen w-full">
-      <Navbar name="red" />
+      {/* <Navbar name="red" /> */}
       <div className="w-full  ">
         <h1 className="text-4xl  text-center pt-4 pb-1 p-2 text-yellow-500">
           Pedidos
