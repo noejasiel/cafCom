@@ -2,29 +2,23 @@ import { Outlet } from "react-router-dom";
 import NavbarCliente from "../components/Navbar";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import changeUser, { setUsr, setAuth } from "../user";
 
 export const DashboardCliente = () => {
-  const [users, setUsers] = useState({});
+  const [user, setUser] = useState();
+  //ya esta el usuario
 
   useEffect(() => {
     getUsers();
   }, []);
 
-  const getUsers = async () => {
-    //lo que fallo fue la ruta
-    // await axios.get("http://localhost:8888/api/users").then((response) => {
-    //   console.log(response.data);
-    // });
-    await axios
-      .get("http://localhost:8888/DBCafe/select.php ")
-      .then((response) => {
-        console.log(response.data);
-      });
+  const getUsers = () => {
+    setUser(localStorage.getItem("usr"));
   };
   return (
     <div>
       <NavbarCliente />
-      <h1>yo soy Dashboard de cliente y soy ruta privada</h1>
+      <h1 className="mt-20">yo soy {user} cliente y soy ruta privada</h1>
       <Outlet />
     </div>
   );

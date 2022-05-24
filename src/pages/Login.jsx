@@ -3,7 +3,9 @@ import { FormLogin } from "../components/FormLogin";
 import bgLogin from "./../assets/bgLogin.png";
 import axios from "axios";
 import { useState } from "react";
-export const Login = (props) => {
+import { useContext } from "react";
+import UserContext from "../context/UserContext";
+export const Login = () => {
   return (
     <div
       className="w-full h-screen"
@@ -24,7 +26,7 @@ export const Login = (props) => {
         <h1 className="text-white z-10 text-4xl m-auto mt-10 text-center">
           Iniciar Sesion
         </h1>
-        <FormLogin auth={props.auth} />
+        <FormLogin />
       </div>
     </div>
   );

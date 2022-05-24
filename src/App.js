@@ -12,30 +12,39 @@ import { ListPedidos } from "./cafeteriaVistas/ListPedidos";
 import { Login } from "./pages/Login";
 import { DashboardCliente } from "./pages/DashboardCliente";
 import { DashboardCafe } from "./componentsCafe/DashboardCafe";
+import { Register } from "./pages/Register";
+import { useState, useEffect } from "react";
+import { Menu } from "./pages/Menu";
+import { Carrito } from "./pages/Carrito";
 
 function App() {
-  const usr = "cli";
-  const auth = false;
+  const [auth, setAuth] = useState();
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  const getUsers = () => {
+    setAuth(localStorage.getItem("usr"));
+    console.log(auth);
+  };
   return (
     <div className="">
       <Router>
         <Routes>
           //si auth esta autenticado, y usr es para saber que Dashboard
           renderizara
-          {/* {usr == "cli" && auth ? 
-            <Route path="/Dashboard" exact element={<DashboardCliente />} />
-           : null} */}
           <Route path="/" exact element={<Home />} />
+          <Route path="/register" exact element={<Register />} />
           <Route
             path="/login"
             exact
-            element={
-              auth ? <Navigate to="/DashboardCafe" /> : <Login auth={auth} />
-            }
+            element={auth ? <Navigate to="/Dashboard" /> : <Login />}
           />
           <Route path="/Dashboard/*" exact element={<DashboardCliente />}>
             <Route path="Pedidos" element={<Pedidos />} />
             <Route path="Ordenar" element={<NuevoPedido />} />
+            <Route path="Menu/*" element={<Menu />} />
             <Route path="Perfil" element={<Perfil />} />
             <Route path="Salir" element={<Salir />} />
             <Route path="faqs" element={<Faqs />} />
