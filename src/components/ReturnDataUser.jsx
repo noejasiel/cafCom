@@ -1,15 +1,25 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import userPic from "../assets/user.png";
 import pedido, { getUser } from "./../data";
 import { useState } from "react";
 import { useEffect } from "react";
-const ReturnDataUser = () => {
-  const [user, setUser] = useState({});
+import axios from "axios";
 
+const ReturnDataUser = () => {
+  const [users, setUsers] = useState({});
   useEffect(() => {
-    setUser(getUser(1));
+    getUsers();
   }, []);
+
+  const getUsers = async () => {
+    const user = localStorage.getItem("usr");
+    await axios
+      .get(`http://localhost:8888/DBCafe/getUser.php/getUser/${user}`)
+      .then((response) => {
+        console.log(response.data[0]);
+        setUsers(response.data[0]);
+      });
+  };
 
   const borrarCuenta = () => {
     alert("borrar cuent");
@@ -22,9 +32,9 @@ const ReturnDataUser = () => {
   return (
     <div className="w-3/4 flex justify-center items-center flex-col">
       <img src={userPic} />
-      <p className="mt-4">Nombre: {user.persona}</p>
-      <p className="mt-4">Apellido {user.apellido}</p>
-      <p className="mt-4">Direcciones: {user.direccion}</p>
+      <p className="mt-4">Nombre: {users.nombre}</p>
+      <p className="mt-4">Apellido: {users.apellidos}</p>
+      <p className="mt-4">numero de Boleta: {users.num_boleta}</p>
       <button
         onClick={() => borrarCuenta()}
         className=" mt-4  text-center p-4 bg-colorBoton  rounded-3xl"

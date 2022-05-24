@@ -5,25 +5,12 @@ import logo from "../assets/logoo.svg";
 import redes from "../assets/redes.png";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-const Navbar = (color) => {
-  const col = false;
-  if (color == "red") {
-    col = true;
-  }
-  console.log(color);
+const Navbar = () => {
   const [toggle, setToggle] = useState(false);
-  const [showNav, setShowNav] = useState(true);
+
   const handleToggle = () => {
     setToggle(!toggle);
   };
-
-  // useEffect(() => {
-  //   if (location.pathname !== "/") {
-  //     setShowNav(true);
-  //   } else {
-  //     setShowNav(false);
-  //   }
-  // });
 
   return (
     <div
@@ -44,7 +31,7 @@ const Navbar = (color) => {
       >
         <div className="w-100 h-full flex flex-wrap justify-around  content-center ">
           <div className=" bottom-100 left-0 flex justify-around items-center h-full">
-            <Link to="/">
+            <Link to="/Dashboard">
               <h1 className="text-yellow-500 z-10 text-4xl m-auto">
                 Cafe&Code
               </h1>{" "}
@@ -97,7 +84,7 @@ const Navbar = (color) => {
             </li>
             <li className=" cursor-pointer p-6  z-index text-center">
               <Link
-                to="/Perfil"
+                to="Perfil"
                 className="text-yellow-500 font-bold rounded-2xl bg-colorBoton pt-2 pl-9 pb-2 pr-9 "
               >
                 Mi perfil
@@ -105,7 +92,7 @@ const Navbar = (color) => {
             </li>
             <li className=" cursor-pointer p-6  z-index text-center">
               <Link
-                to="/salir"
+                to="salir"
                 className="text-yellow-500 font-bold rounded-2xl bg-colorBoton pt-2 pl-9 pb-2 pr-9 "
               >
                 Salir
@@ -113,7 +100,7 @@ const Navbar = (color) => {
             </li>
             <li className=" cursor-pointer p-6  z-index text-center">
               <Link
-                to="/faqs"
+                to="faqs"
                 className="text-yellow-500 font-bold rounded-2xl bg-colorBoton pt-2 pl-9 pb-2 pr-9 "
               >
                 FAQS

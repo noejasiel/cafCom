@@ -21,12 +21,11 @@ const Pedidos_pedidos = () => {
   };
 
   const allOk = () => {
-    navigate("/pedidos");
+    navigate("/Dashboard/Pedidos");
   };
 
   return (
     <div className=" bg-negroAzul pb-20 relative pt-16">
-      <Navbar name="red" />
       <div className="w-full  ">
         <h1 className="text-4xl  text-center pt-4 pb-1 p-2 text-white">
           Tu pedido

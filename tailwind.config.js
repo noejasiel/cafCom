@@ -14,6 +14,7 @@ module.exports = {
         negroAzul: "#00020E",
         colorBoton: "#14213D",
         colorLetras: "#FCA311",
+        colorTarjeta: "#E5E5E5",
       }),
     },
   },
