@@ -11,7 +11,7 @@ const Home = () => {
   };
 
   return (
-    <div className=" h-full w-full h-screen pb-20">
+    <div className="  w-full h-screen pb-20">
       <div className="bg-img-home bg-cover h-full w-full">
         {/* <Navbar /> */}
         <NavbarInicio />

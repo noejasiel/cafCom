@@ -80,7 +80,7 @@ const NavbarCafe = () => {
           >
             <li className=" cursor-pointer pt-10 pb-6  z-index text-center ">
               <Link
-                to="/DashboardCafe"
+                to="/DashboardRepa"
                 onClick={handleToggle}
                 className=" text-yellow-500 font-bold rounded-2xl bg-colorBoton pt-2 pl-9 pb-2 pr-9"
               >
@@ -93,11 +93,11 @@ const NavbarCafe = () => {
                 onClick={handleToggle}
                 className="text-yellow-500 font-bold rounded-2xl bg-colorBoton pt-2 pl-9 pb-2 pr-9 "
               >
-                Lista de Pedidos
+                Pedidos a entregar
               </Link>
             </li>
 
-            <li className=" cursor-pointer p-6  z-index text-center">
+            {/* <li className=" cursor-pointer p-6  z-index text-center">
               <Link
                 to="Menu"
                 onClick={handleToggle}
@@ -105,14 +105,14 @@ const NavbarCafe = () => {
               >
                 Menu
               </Link>
-            </li>
+            </li> */}
             <li className=" cursor-pointer p-6  z-index text-center">
               <Link
                 to="perfilCafeteria"
                 onClick={handleToggle}
                 className="text-yellow-500 font-bold rounded-2xl bg-colorBoton pt-2 pl-9 pb-2 pr-9 "
               >
-                Mi Cafeteria
+                Mi Perfil
               </Link>
             </li>
             <li className=" cursor-pointer p-6  z-index text-center">

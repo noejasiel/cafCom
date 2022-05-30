@@ -26,7 +26,7 @@ const NuevoPedido = () => {
   const allOk = () => {};
 
   return (
-    <div className=" bg-negroAzul pb-20 relative pt-16">
+    <div className=" bg-negroAzul pb-20 h-screen relative pt-16">
       {/* <Navbar name="red" /> */}
       <div className="w-full  ">
         <h1 className="text-4xl  text-center pt-4 pb-1 p-2 text-white">
@@ -37,14 +37,14 @@ const NuevoPedido = () => {
       <div className=" w-full flex justify-center items-center ">
         <div className="flex w-11/12 justify-center flex-col items-center relative mt-8 bg-white rounded-xl opacity-90">
           <ReturnFormNewOrder />
-          <div className="w-full flex justify-around mb-10">
+          {/* <div className="w-full flex justify-around mb-10">
             <button onClick={() => modDatos()}>
               <img src={Mod} width="90" height="100" />
             </button>
             <button onClick={() => allOk()}>
               <img src={Bien} width="50" />
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

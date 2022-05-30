@@ -3,25 +3,29 @@ import menu from "../assets/menu.svg";
 import Close_Icon from "../assets/close.svg";
 import logo from "../assets/logoo.svg";
 import redes from "../assets/redes.png";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useNavigate,
+} from "react-router-dom";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     setToggle(!toggle);
   };
+  const Salir = () => {
+    localStorage.removeItem("usr");
+    localStorage.removeItem("typeUsr");
+    navigate("/");
+  };
 
   return (
-    <div
-      className="relative z-20 blur-xl"
-      // className={
-      //   showNav
-      //     ? // ? "w-full h-20 bg-gradient-to-l from-purple-600 to-purple-400"
-      //       "w-full h-16 bg-black  m-auto"
-      //     : "hidden"
-      // }
-    >
+    <div className="relative z-20 blur-xl">
       <nav
         className={
           toggle
@@ -68,7 +72,8 @@ const Navbar = () => {
           >
             <li className=" cursor-pointer pt-10 pb-6  z-index text-center ">
               <Link
-                to="/"
+                to="/Dashboard"
+                onClick={handleToggle}
                 className=" text-yellow-500 font-bold rounded-2xl bg-colorBoton pt-2 pl-9 pb-2 pr-9"
               >
                 Home
@@ -76,7 +81,17 @@ const Navbar = () => {
             </li>
             <li className=" cursor-pointer p-6  z-index text-center">
               <Link
+                to="Menu"
+                onClick={handleToggle}
+                className="text-yellow-500 font-bold rounded-2xl bg-colorBoton pt-2 pl-9 pb-2 pr-9 "
+              >
+                Menu
+              </Link>
+            </li>
+            <li className=" cursor-pointer p-6  z-index text-center">
+              <Link
                 to="pedidos"
+                onClick={handleToggle}
                 className="text-yellow-500 font-bold rounded-2xl bg-colorBoton pt-2 pl-9 pb-2 pr-9 "
               >
                 Pedidos
@@ -85,22 +100,24 @@ const Navbar = () => {
             <li className=" cursor-pointer p-6  z-index text-center">
               <Link
                 to="Perfil"
+                onClick={handleToggle}
                 className="text-yellow-500 font-bold rounded-2xl bg-colorBoton pt-2 pl-9 pb-2 pr-9 "
               >
                 Mi perfil
               </Link>
             </li>
             <li className=" cursor-pointer p-6  z-index text-center">
-              <Link
-                to="salir"
+              <button
+                onClick={Salir}
                 className="text-yellow-500 font-bold rounded-2xl bg-colorBoton pt-2 pl-9 pb-2 pr-9 "
               >
                 Salir
-              </Link>
+              </button>
             </li>
             <li className=" cursor-pointer p-6  z-index text-center">
               <Link
                 to="faqs"
+                onClick={handleToggle}
                 className="text-yellow-500 font-bold rounded-2xl bg-colorBoton pt-2 pl-9 pb-2 pr-9 "
               >
                 FAQS

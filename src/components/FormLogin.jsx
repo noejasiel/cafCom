@@ -1,12 +1,6 @@
 import { Fragment, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import changeUser, { setUsr, setAuth } from "../user";
-
-const data = {
-  usr: "loco",
-  pass: "loquito",
-};
 
 export const FormLogin = () => {
   const [warning, setWarning] = useState(true);
@@ -19,9 +13,6 @@ export const FormLogin = () => {
   // //obtuve el valor del imput para enviarlo al server
   const [inputs, setInputs] = useState({});
 
-  console.log(changeUser, inputs.usr);
-
- 
   const handleChangeInput = (e) => {
     setWarning(true);
     const name = e.target.name;
@@ -31,9 +22,11 @@ export const FormLogin = () => {
       [name]: value,
     }));
   };
+  console.log(inputs);
 
   const handleSendLogin = (event) => {
     event.preventDefault();
+
     axios
       .post("http://localhost:8888/DBCafe/select.php/user/login", inputs)
       .then((response) => {
@@ -41,9 +34,19 @@ export const FormLogin = () => {
         //ya que si hay un mensaje es un mensaje de error 404
         if (!response.data) {
           setWarning(false);
-          setUsr(inputs.usr);
           localStorage.setItem("usr", inputs.usr);
-          navigate("/Dashboard", { replace: true });
+          localStorage.setItem("typeUsr", inputs.select);
+          if (inputs.select === "Cliente") {
+            console.log("entro en cliente aqui en login", inputs.select);
+            navigate("/Dashboard", { replace: true });
+          }
+          if (inputs.select === "Cafeteria") {
+            console.log("entro en cafe", inputs.select);
+            navigate("/DashboardCafe", { replace: true });
+          }
+          if (inputs.select === "Repartidor") {
+            navigate("/DashboardRepa", { replace: true });
+          }
         } else {
           setWarning(true);
         }
@@ -56,6 +59,8 @@ export const FormLogin = () => {
       setWarning(false);
     }
   };
+
+  console.log(inputs.select);
 
   return (
     <Fragment>
@@ -82,6 +87,14 @@ export const FormLogin = () => {
             onChange={handleChangeInput}
             name="pass"
           />
+          <span className="text-gray-800 text-xl"></span>
+          <br />
+          <select name="select" onChange={handleChangeInput}>
+            <option value="" selected></option>
+            <option value="Cliente">Cliente</option>
+            <option value="Cafeteria">Cafeteria</option>
+            <option value="Repartidor">Repartidor</option>
+          </select>
           {warning ? null : (
             <p className="text-red-700 mt-10">! Credenciales incorrectas ¡</p>
           )}

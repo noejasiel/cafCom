@@ -18,7 +18,7 @@ export const DashboardCliente = () => {
   return (
     <div>
       <NavbarCliente />
-      <h1 className="mt-20">yo soy {user} cliente y soy ruta privada</h1>
+      {/* <h1 className="mt-20">yo soy {user} cliente y soy ruta privada</h1> */}
       <Outlet />
     </div>
   );

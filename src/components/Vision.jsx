@@ -3,14 +3,15 @@ import somos from "../assets/somos.png";
 
 const Vision = () => {
   return (
-    <div className="w-full bg-negroAzul flex  justify-center pt-6 pb-6">
+    <div className="w-full bg-blue-700 flex  justify-center pt-6 pb-6">
       <div className="w-10/12 flex justify-around">
         <img src={somos} width="110" />
         <div className="w-7/12">
-          <h1 className="text-white ">¿Quienes Somos?</h1>
+          <h1 className="text-white ">Mision</h1>
           <p className="text-white ">
-            Somos Nombre y nos dedicamos a ahorrarte la vida ahorrandote tiempo
-            en el pedido de tu comida y llevartelo a tu lugar
+            Nos proyectamos como una aplicación que, a futuro, pueda reunir más
+            cafeterías dentro de la zona de Zacatenco para brindar servicio de
+            la comunidad politécnica.
           </p>
         </div>
       </div>

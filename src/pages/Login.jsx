@@ -1,10 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import { FormLogin } from "../components/FormLogin";
 import bgLogin from "./../assets/bgLogin.png";
-import axios from "axios";
-import { useState } from "react";
-import { useContext } from "react";
-import UserContext from "../context/UserContext";
 export const Login = () => {
   return (
     <div
