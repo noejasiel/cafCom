@@ -11,6 +11,8 @@ const Pedidos_pedidos = () => {
   const [user, setUser] = useState({});
   const [pedidos, setPedidos] = useState();
   const [doYouSaySerious, setDoYouSaySerious] = useState(false);
+  const [menu, setMenu] = useState();
+  const [total, setTotal] = useState();
 
   //llamaos a una funcion donde estan los datos de las personas, simulando la bse
 
@@ -33,6 +35,7 @@ const Pedidos_pedidos = () => {
 
   useEffect(() => {
     getUser();
+    totalProducts();
   }, []);
 
   // useEffect(() => {
@@ -49,16 +52,37 @@ const Pedidos_pedidos = () => {
         setUser(response.data[0]);
       });
   };
-  console.log(user);
+
+  const dataTotal = (total) => {
+    // if (total) {
+    //   let pedidosTotal = total.split(",");
+    //   let count = 0;
+    //   menu.map(item => {
+    //     if(item.nom_producto == pedidosTotal[count]){
+    //       console.log("lo encontre");
+    //     }
+    //   })
+    // }
+    // console.log(total, "aqui");
+    // console.log(menu, "aqui");
+    // array.forEach((element) => {});
+  };
 
   const areYouSure = () => {
     setDoYouSaySerious(!doYouSaySerious);
   };
 
-  // const upDateUser = () => {
-  //   setPedidos(pedido.split(","));
-  //   console.log(pedido);
-  // };
+  const totalProducts = () => {
+    // console.log(total);
+    // if (total) {
+    // let arrPedido = total.split(",");
+    // console.log(arrPedido);
+    axios
+      .get(`http://localhost:8888/DBCafe/getTotal.php/getTotal/`)
+      .then((response) => {
+        setMenu(response.data);
+      });
+  };
 
   return (
     <div className=" bg-negroAzul pb-20 relative pt-16">
@@ -129,6 +153,20 @@ const Pedidos_pedidos = () => {
             <p className="mt-auto mb-auto pl-2 pr-2 p-3 text-center">
               se estima que el repartidor legue a:
               <span className="text-red-600 "> {showDate(user.fecha)}</span>
+            </p>
+            <hr className="h-0.5 w-full bg-primary" />
+
+            <p className="mt-auto mb-auto pl-2 pr-2 p-3 text-center">
+              Consideracion:
+              {user.nota != "" ? (
+                <span className="text-red-600 "> {user.nota}</span>
+              ) : (
+                <span className="text-red-600 "> No hay Consideraciones</span>
+              )}
+            </p>
+            <p className="mt-auto mb-auto pl-2 pr-2 p-3 text-center">
+              Total:
+              <span className="text-red-600 "> {user.total}</span>
             </p>
           </div>
           <div className="w-full flex justify-around mb-10">

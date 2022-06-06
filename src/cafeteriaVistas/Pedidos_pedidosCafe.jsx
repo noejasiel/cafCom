@@ -144,8 +144,18 @@ export const Pedidos_pedidosCafe = () => {
               contenido del pedido:
               <span className="text-red-600 "> {user.pedido}</span>
             </p>
+
             <hr className="h-0.5 w-full bg-primary" />
 
+            <p className="mt-auto mb-auto pl-2 pr-2 p-3 text-center">
+              Consideraciones:
+              <span className="text-red-600 "> {user.nota}</span>
+            </p>
+            <hr className="h-0.5 w-full bg-primary" />
+            <p className="mt-auto mb-auto pl-2 pr-2 p-3 text-center">
+              Total:
+              <span className="text-red-600 "> {user.total}</span>
+            </p>
             {modData ? (
               typeUsr == "Cafeteria" ? (
                 <>
@@ -183,6 +193,7 @@ export const Pedidos_pedidosCafe = () => {
                       {showDate(user.fecha)}
                     </span>
                   </p>
+
                   <div className="w-full flex justify-around">
                     <button
                       onClick={modDatos}

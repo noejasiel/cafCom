@@ -15,11 +15,21 @@ export const NewItemMenu = () => {
   };
 
   const handleInputSelect = (e) => {
+    let path = e.target.value;
+    let aux = path.split("\\");
+    console.log(aux, typeof path);
     setNewItem({
       ...newItem,
       ["noProducto"]: (Math.random() * 100000).toFixed(),
       [e.target.name]: e.target.value,
+      ["itemFile"]: e.target.value.split("\\")[2],
     });
+  };
+
+  const handleInput = (e) => {
+    let path = e.target.value;
+    let aux = path.split("\\");
+    console.log(aux, typeof path);
   };
 
   console.log(newItem);
@@ -72,7 +82,6 @@ export const NewItemMenu = () => {
                 />
               </p>
               <hr className="h-0.5 w-full bg-primary" />
-
               <p className="mt-auto mb-auto pl-2 pr-2 p-3 text-center flex flex-col">
                 Tiempo preparacion del Item
                 <input
@@ -92,6 +101,16 @@ export const NewItemMenu = () => {
                   type="text"
                   onChange={handleInputSelect}
                   name="itemPrice"
+                  placeholder="Precio del Item"
+                />
+              </p>
+              <p className="mt-auto mb-auto pl-2 pr-2 p-3 text-center flex flex-col">
+                Precio del Items
+                <input
+                  className="mt-3 mb-5"
+                  type="file"
+                  onChange={handleInputSelect}
+                  name="itemFile"
                   placeholder="Precio del Item"
                 />
               </p>

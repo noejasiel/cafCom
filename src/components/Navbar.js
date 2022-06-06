@@ -35,7 +35,7 @@ const Navbar = () => {
       >
         <div className="w-100 h-full flex flex-wrap justify-around  content-center ">
           <div className=" bottom-100 left-0 flex justify-around items-center h-full">
-            <Link to="/Dashboard">
+            <Link to="/Dashboard/Menu">
               <h1 className="text-yellow-500 z-10 text-4xl m-auto">
                 Cafe&Code
               </h1>{" "}

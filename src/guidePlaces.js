@@ -34,7 +34,12 @@ const places = [
   {
     id: 6,
     url: `${ESCOM_edificio1}`,
-    lugar: "ESCOM Biblioteca",
+    lugar: "ESCOM Area Fumadores",
+  },
+  {
+    id: 7,
+    url: `${ESCOM_edificio1}`,
+    lugar: "ESCOM Barras",
   },
 ];
 

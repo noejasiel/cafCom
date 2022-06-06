@@ -70,9 +70,11 @@ const Pedidos = () => {
             <div className="flex justify-center flex-col w-full">
               <h1 className="text-white">Pedidos entregados</h1>
               {pedidosRecicbidos.map((pedidoo) => (
-                <div className=" w-9/12 bg-green-500 mb-5 rounded-lg flex justify-center items-center text-black m-auto flex-col">
+                <div className=" w-9/12 bg-green-500 text-white font-semibold mb-5 rounded-lg flex justify-center items-center  m-auto flex-col">
                   <p className="mt-auto mb-auto  ">Nombre: {pedidoo.usuario}</p>
-                  <p className="mt-auto mb-auto  ">Status: {pedidoo.status}</p>
+                  <p className="mt-auto mb-auto p-2 ">
+                    Status: {pedidoo.status}
+                  </p>
                   <p className="mt-auto mb-auto  ">Status: {pedidoo.pedido}</p>
                 </div>
               ))}

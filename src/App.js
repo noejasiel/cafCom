@@ -47,11 +47,11 @@ function App() {
             element={
               auth ? (
                 type == "Cliente" ? (
-                  <Navigate to="/Dashboard" />
+                  <Navigate to="/Dashboard/Menu" />
                 ) : type == "Repartidor" ? (
-                  <Navigate to="/DashboardRepa" />
+                  <Navigate to="/DashboardRepa/listaPedidos" />
                 ) : (
-                  <Navigate to="/DashboardCafe" />
+                  <Navigate to="/DashboardCafe/Menu" />
                 )
               ) : (
                 <Login />

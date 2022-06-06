@@ -20,8 +20,7 @@ export const Register = () => {
           backdropFilter: "blur(3px)",
         }}
       >
-        <Link to="/Dashboard">
-          {" "}
+        <Link to="/">
           <h1 className="text-yellow-500 z-10 text-4xl  p-8">Cafe&Code</h1>
         </Link>
         <h1 className="text-white z-10 text-4xl m-auto  text-center">

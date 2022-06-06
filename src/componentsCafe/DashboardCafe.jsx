@@ -5,8 +5,7 @@ export const DashboardCafe = () => {
   return (
     <div>
       <NavbarCafe />
-      <h1>yo soy Dashboard de Cafeteria y soy ruta privada</h1>
-      <Outlet/>
+      <Outlet />
     </div>
   );
 };

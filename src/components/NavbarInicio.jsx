@@ -14,7 +14,7 @@ const NavbarInicio = () => {
               <Link to="/login">Iniciar Sesion</Link>
             </button>
             <button className="bg-colorBoton p-2 rounded-xl ">
-              <Link to="/">Registrarse</Link>
+              <Link to="/register">Registrarse</Link>
             </button>
           </div>
         </div>

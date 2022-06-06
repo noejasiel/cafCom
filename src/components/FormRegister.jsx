@@ -37,7 +37,7 @@ export const FormRegister = () => {
           setWarning(false);
           console.log(usrRef);
           localStorage.setItem("usr", inputs.usr);
-          navigate("/Dashboard", { replace: true });
+          navigate("/Dashboard/Menu", { replace: true });
         } else {
           setWarning(true);
         }

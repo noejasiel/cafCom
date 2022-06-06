@@ -1,5 +1,7 @@
 import { FormLogin } from "../components/FormLogin";
 import bgLogin from "./../assets/bgLogin.png";
+import { Link } from "react-router-dom";
+
 export const Login = () => {
   return (
     <div
@@ -17,7 +19,9 @@ export const Login = () => {
           backdropFilter: "blur(3px)",
         }}
       >
-        <h1 className="text-yellow-500 z-10 text-4xl  p-8">Cafe&Code</h1>
+        <Link to="/">
+          <h1 className="text-yellow-500 z-10 text-4xl  p-8">Cafe&Code</h1>
+        </Link>
         <h1 className="text-white z-10 text-4xl m-auto mt-10 text-center">
           Iniciar Sesion
         </h1>

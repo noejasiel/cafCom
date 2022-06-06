@@ -5,11 +5,10 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const Perfil = () => {
-  
   return (
-    <div className="bg-negroAzul h-screen w-full  ">
+    <div className="bg-negroAzul h-screen w-full flex justify-center  ">
       {/* <Navbar /> */}
-      <div className="text-yellow-500 flex justify-center items-center flex-col relative top-20">
+      <div className="text-yellow-500 flex justify-center items-center flex-col relative">
         <ReturnDataUser />
       </div>
     </div>

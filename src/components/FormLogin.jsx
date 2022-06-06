@@ -36,16 +36,17 @@ export const FormLogin = () => {
           setWarning(false);
           localStorage.setItem("usr", inputs.usr);
           localStorage.setItem("typeUsr", inputs.select);
+
           if (inputs.select === "Cliente") {
-            console.log("entro en cliente aqui en login", inputs.select);
-            navigate("/Dashboard", { replace: true });
+            // console.log("entro en cliente aqui en login", inputs.select);
+            navigate("/Dashboard/Menu", { replace: true });
           }
           if (inputs.select === "Cafeteria") {
-            console.log("entro en cafe", inputs.select);
-            navigate("/DashboardCafe", { replace: true });
+            // console.log("entro en cafe", inputs.select);
+            navigate("/DashboardCafe/Menu", { replace: true });
           }
           if (inputs.select === "Repartidor") {
-            navigate("/DashboardRepa", { replace: true });
+            navigate("/DashboardRepa/listaPedidos", { replace: true });
           }
         } else {
           setWarning(true);
